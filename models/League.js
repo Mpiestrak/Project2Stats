@@ -5,7 +5,13 @@ const League = new Schema({
     name: String,
     bDate: String,
     eDate: String,
-    numberOfTeams: Number
+    numberOfTeams: Number,
+    teams: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Team'
+        }
+    ]
 })
 
 module.exports = mongoose.model('League', League)
