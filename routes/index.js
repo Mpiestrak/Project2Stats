@@ -7,14 +7,14 @@ const applicationController = require('../controllers/application')
 
 
 /* GET home page. */
-router.get('/', applicationController.index)
+router.get('/', leagueController.index)
 
-router.get('/league', leagueController.index),
+// router.get('/league', leagueController.index),
 // router.get('/league/new', leagueController.new)
 // router.post('/league', leagueController.create)
 // router.get('/league/:id', leagueController.show)
 
-// router.get('/league/:id/team/new', teamController.new)
+router.get('/league/:id', teamController.index)
 // router.get('/league/:id/team', teamController.show)
 // router.post('/league/:id/team', teamController.create)
 

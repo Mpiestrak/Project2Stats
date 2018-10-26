@@ -4,12 +4,15 @@ const Team = require('../models/Team')
 
 const leagueController = {
     index: (req, res) => {
-        res.render('league/index', {
-
-        })
+        League.find({}).populate('teams')
+            .then((league) => {
+                res.render('app/index', {
+                    league: league
+                })
+            })
     },
     // new: (req, res) => {
-    //     res.render(`question/new`, {
+    //     res.render(`league/new`, {
     //         league: league
     //     })
     // },
