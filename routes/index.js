@@ -7,8 +7,9 @@ const applicationController = require('../controllers/application')
 
 
 /* GET home page. */
-router.get('/', applicationController.index);
+router.get('/', applicationController.index)
 
+router.get('/league', leagueController.index),
 // router.get('/league/new', leagueController.new)
 // router.post('/league', leagueController.create)
 // router.get('/league/:id', leagueController.show)
