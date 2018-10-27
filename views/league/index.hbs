@@ -1,9 +1,11 @@
-<h1>Leagues</h1>
+<h1>{{league.name}}</h1>
 {{#each league.teams}}
 <div class="card" style="width: 18rem;">
   <div class="card-body">
     {{log this}}
-    <h5 class="card-title">{{name}}</h5>
+    {{#each teams}}
+    <option value="{{id}}">hi</option>
+    {{/each}}
   </div>
 </div>
 {{/each}}
