@@ -14,7 +14,7 @@ router.get('/', leagueController.index)
 // router.post('/league', leagueController.create)
 // router.get('/league/:id', leagueController.show)
 
-router.get('/league/:id', teamController.index)
+router.get('league/leagueId/team', teamController.index)
 // router.get('/league/:id/team', teamController.show)
 // router.post('/league/:id/team', teamController.create)
 
