@@ -1,6 +1,6 @@
 const League = require('../models/League.js')
 const Team = require('../models/Team.js')
-const Stats = require('../models/Stats.js')
+const mongoose = require('./connections')
 
 const team1Stats = new Stats({
     points: 1,
