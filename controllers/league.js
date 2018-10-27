@@ -21,9 +21,18 @@ const leagueController = {
     //         res.redirect(`/`)
     //     })
     // },
-    // show: (req, res) => {
-    //     res.render('league', {league: league})
-    // }
+    show: (req, res) => {
+            const leagueId = req.query.leagueId
+            console.log(leagueId)
+            League.findById(leagueId).populate(`teams`)
+                .then(league => {
+                    console.log(league)
+                    const team = league.team
+                    res.render('league/index', {
+                        league: league
+                    })
+                })
+        },
 }
 
 

@@ -60,16 +60,25 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="form-inline">
-                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Preference</label>
-                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                        <option selected>Choose...</option>
+                {{!-- <form id="link" action="/league" class="form-inline">
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">League</label>
+                    <select name="id" form="#link" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                        <option>Choose...</option>
                         {{#each league}}
-                        <option value="1">{{name}}</option>
+                        <option name="id" value="{{_id}}">{{name}}</option>
                         {{/each}}
                     </select>
-                    <a href="/league" type="submit" class="btn btn-primary">Submit</a>
+                    <input value="Go" type="submit" class="btn btn-primary">
+                </form> --}}
+                <form action="/league" id="leagueform">
+                    <input type="submit">
                 </form>
+                <br>
+                <select name="leagueId" form="leagueform">
+                    {{#each league}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/each}}
+                </select>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
