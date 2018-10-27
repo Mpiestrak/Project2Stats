@@ -26,7 +26,6 @@ const leagueController = {
             console.log(leagueId)
             League.findById(leagueId).populate(`teams`)
                 .then(league => {
-                    console.log(league)
                     const team = league.team
                     res.render('league/index', {
                         league: league

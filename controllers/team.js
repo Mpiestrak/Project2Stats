@@ -4,11 +4,14 @@ const Team = require('../models/Team')
 
 const teamController = {
     index: (req, res) => {
-        const leagueId = req.params.leagueId
-        League.findById(leagueId).populate(`team`)
-            .then(league => {
-                const team = league.team
-                res.send(team)
+        const teamId = req.query.teamId
+        console.log(teamId)
+        Team.findById(teamId).populate(`stats`)
+            .then(team => {
+                // const stats = team.stats
+                res.render('team/index', {
+                    team: team
+                })
             })
     },
 }

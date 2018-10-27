@@ -1,11 +1,10 @@
-<h1>{{league.name}}</h1>
+<h1>{{league.name}} Standings:</h1>
 {{#each league.teams}}
 <div class="card" style="width: 18rem;">
   <div class="card-body">
     {{log this}}
-    {{#each teams}}
-    <option value="{{id}}">hi</option>
-    {{/each}}
+    <a href="/team/{{id}}" class="card-title">{{name}}</a>
   </div>
 </div>
 {{/each}}
+
