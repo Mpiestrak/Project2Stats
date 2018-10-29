@@ -16,17 +16,30 @@ const leagueController = {
     //         league: league
     //     })
     // },
-    // create: (req, res) => {
-    //     League.create(req.body).then(() => {
-    //         res.redirect(`/`)
-    //     })
-    // },
+    create: (req, res) => {
+        let league = new League(
+            {
+                name: req.body.name,
+                bDate: req.body.bDate,
+                eDate: req.body.eDate,
+                numberOfTeams: req.body.numberOfTeams,
+                teams: []
+            }
+        );
+    
+        league.save(function (err) {
+            if (err) {
+                return next(err);
+            }
+            res.send('League Created successfully')
+        })
+    },
     show: (req, res) => {
             const leagueId = req.query.leagueId
-            console.log(leagueId)
+            console.log(req.query)
             League.findById(leagueId).populate(`teams`)
                 .then(league => {
-                    const team = league.team
+                    // const team = league.team
                     res.render('league/index', {
                         league: league
                     })

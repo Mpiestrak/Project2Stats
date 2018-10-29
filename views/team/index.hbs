@@ -1,10 +1,10 @@
-<h1>team index is working!</h1>
-{{#each league.team.stats}}
+<h1>{{team.name}}</h1>
+{{!-- {{log this}} --}}
+{{#each team.stats}}
 <div class="card" style="width: 18rem;">
   <div class="card-body">
     {{log this}}
     <h5 class="card-title">{{name}}</h5>
-
   </div>
 </div>
 {{/each}}

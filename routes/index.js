@@ -9,12 +9,11 @@ const applicationController = require('../controllers/application')
 /* GET home page. */
 router.get('/', leagueController.index)
 
-// router.get('/league', leagueController.index),
-// router.get('/league/new', leagueController.new)
-// router.post('/league', leagueController.create)
 router.get('/league', leagueController.show)
+router.post('/league', leagueController.create)
 
-router.get('/team/:Id', teamController.index)
+router.get('/team', teamController.index)
+// router.get('/stats/:Id', statsController.index)
 
 
 module.exports = router;
