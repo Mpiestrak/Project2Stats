@@ -15,25 +15,24 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="League">League name:</label>
-                        <input type="text" class="form-control" id="leagueInputName" aria-describedby="leagueNameHelp"
-                            placeholder="Enter name">
+                <form action="/league" method="POST" class="auth-form">
+                    <div>
+                        <label>Name of League:</label>
+                        <input type="text" name="name" placeholder="Enter Name">
                     </div>
-                    <div class="form-group">
-                        <label for="beginDate">Begin date:</label>
-                        <input type="date" class="form-control" id="beginDate" placeholder="Date league begins">
+                    <div>
+                        <label for="">Beginning Date:</label>
+                        <input type="date" name="bDate">
                     </div>
-                    <div class="form-group">
-                        <label for="eDate">End date:</label>
-                        <input type="date" class="form-control" id="eDate" placeholder="Date league ends">
+                    <div>
+                        <label for="">End Date:</label>
+                        <input type="date" name="eDate">
                     </div>
-                    <div class="form-group">
-                        <label for="numberOfTeams">Number of teams in league:</label>
-                        <input type="number" class="form-control" id="numberOfTeams" placeholder="Number of teams in league">
+                    <div>
+                        <label for="">Number of Teams:</label>
+                        <input type="number" name="# of teams" placeholder="#ofTeams">
                     </div>
-                    <a href="/league" type="submit" class="btn btn-primary">Submit</a>
+                    <button type="submit">Next:</br>Add Teams/Create league</button>
                 </form>
             </div>
             <div class="modal-footer">
@@ -60,15 +59,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                <select name="leagueId" form="leagueform">
-                    {{#each league}}
-                    <option value="{{id}}">{{name}}</option>
-                    {{/each}}
-                </select>
-                <br>
-                <form action="/league" id="leagueform">
-                    <input value="Go" type="submit">
-                </form>
+                {{#each league}}
+                <a href="/league/{{id}}">{{name}}</a>
+                {{/each}}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

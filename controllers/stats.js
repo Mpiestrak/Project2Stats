@@ -5,7 +5,7 @@ const Team = require('../models/Team')
 const statsController = {
     index: (req, res) => {
         const teamId = req.params.teamId
-        console.log(teamId)
+        // console.log(teamId)
         Team.findById(teamId).populate(`stats`)
             .then(team => {
                 // const stats = team.stats
