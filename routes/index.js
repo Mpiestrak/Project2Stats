@@ -13,6 +13,8 @@ router.get('/league', leagueController.show)
 router.post('/league', leagueController.create)
 
 router.get('/team', teamController.index)
+
+router.get('/team/:id', teamController.show)
 // router.get('/stats/:Id', statsController.index)
 
 

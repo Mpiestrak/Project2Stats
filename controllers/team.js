@@ -14,5 +14,17 @@ const teamController = {
                 })
             })
     },
+    show: (req, res) => {
+        const teamId = req.params.id
+        console.log(teamId)
+        Team.findById(teamId).populate(`stats`)
+            .then(team => {
+                console.log(team)
+                // const stats = team.stats
+                res.render('team/index', {
+                    team: team
+                })
+            })
+    }
 }
 module.exports = teamController;
