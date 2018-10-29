@@ -22,11 +22,11 @@
                     </div>
                     <div>
                         <label for="">Beginning Date:</label>
-                        <input type="date" name="bDate">
+                        <input type="date" name="bDate" placeholder="b">
                     </div>
                     <div>
                         <label for="">End Date:</label>
-                        <input type="date" name="eDate">
+                        <input type="date" name="eDate" placeholder="g">
                     </div>
                     <div>
                         <label for="">Number of Teams:</label>
@@ -59,6 +59,7 @@
                 </button>
             </div>
             <div class="modal-body">
+
                 {{#each league}}
                 <a href="/league/{{id}}">{{name}}</a>
                 {{/each}}

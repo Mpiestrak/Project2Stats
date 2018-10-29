@@ -22,7 +22,7 @@ const teamController = {
             logo: req.body.logo,
             stats: []
         }).then(team => {
-            res.redirect(`/league/:id`)
+            res.redirect(`/`)
         })
     },
 
