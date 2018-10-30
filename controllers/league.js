@@ -19,7 +19,6 @@ const leagueController = {
             name: req.body.name,
             bDate: req.body.bDate,
             eDate: req.body.eDate,
-            numberOfTeams: req.body.numberOfTeams,
             teams: []
         }).then(league => {
             res.redirect(`/`)
@@ -36,6 +35,20 @@ const leagueController = {
                 })
             })
     },
+
+    edit: (req, res) => {
+        const leagueId = req.params.leagueId
+        League.findById(leagueId)
+        .then(league => {
+            res.render('league/edit', {league: league})
+        })
+    },
+
+    update: (req, res) => {
+        League.findByIdAndUpdate(req.params.leagueId, req.body).then((updatedLeague) => {
+            res.redirect(`/league/${updatedLeague._id}`)
+        })
+    }
 }
 
 

@@ -64,7 +64,6 @@ const league1 = new League({
     name: 'First league',
     bDate: '1/1/2018',
     eDate: '2/2/2018',
-    numberOfTeams: 2,
     teams: [team1, team2]
 })
 
@@ -72,7 +71,6 @@ const league2 = new League({
     name: 'Second League',
     bdate: '4/4/2018',
     eDate: '5/5/2018',
-    numberOfTeams: 1,
     teams: [team3]
 })
 

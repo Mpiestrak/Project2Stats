@@ -19,7 +19,6 @@ const teamController = {
     create: (req, res) => {
         const leagueId = req.params.leagueId
         League.findById(leagueId).then((league) => {
-            console.log(league)
             Team.create(req.body).then((createdTeam) => {
                 league.teams.push(createdTeam)
                 league.save()
