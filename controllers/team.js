@@ -22,21 +22,26 @@ const teamController = {
             Team.create(req.body).then((createdTeam) => {
                 league.teams.push(createdTeam)
                 league.save()
-                res.redirect(`/league/${leagueId}`)
+            }).then((team) => {
+                Stats.create(req.body).then((createdStats) => {
+                    teams.stats.push(createdStats)
+                    teams.save()
+                    res.redirect(`/league/${leagueId}`)
+                })
             })
         })
     },
 
-    show: (req, res) => {
-        const teamId = req.params.teamId
-        // console.log(teamId)
-        Team.findById(teamId).populate(`stats`)
-            .then(team => {
-                console.log(team)
-                // console.log(team)
-                // const stats = team.stats
-                res.render(`/league/index`)
-            })
-    }
+    // show: (req, res) => {
+    //     const teamId = req.params.teamId
+    //     // console.log(teamId)
+    //     Team.findById(teamId).populate(`stats`)
+    //         .then(team => {
+    //             console.log(team)
+    //             // console.log(team)
+    //             // const stats = team.stats
+    //             res.render(`/league/index`)
+    //         })
+    // }
 }
 module.exports = teamController;

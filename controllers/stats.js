@@ -4,13 +4,12 @@ const Team = require('../models/Team')
 
 const statsController = {
     update: (req, res) => {
-        League.findById(req.params.leagueId).then((league) => {
+
             Team.findById(req.params.teamId).then((team) => {
-                Stats.findByIdAndUpdate(req.params.leagueId, req.body).then((updatedStats) => {
+                Stats.findByIdAndUpdate(req.params.statsId, req.body).then((updatedStats) => {
                     res.redirect(`/league/${leagueId}`)
                 })
             })
-        })
     },
 
 }
