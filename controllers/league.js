@@ -28,9 +28,8 @@ const leagueController = {
     // populate stats after populating teams?
     show: (req, res) => {
         const leagueId = req.params.leagueId
-        League.findById(leagueId).populate(`teams`)
+        League.findById(leagueId).populate({path: 'teams', populate: {path: 'stats' }})
             .then(league => {
-                // const team = league.team
                 res.render('league/index', {
                     league: league
                 })

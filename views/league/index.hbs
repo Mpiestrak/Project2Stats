@@ -1,17 +1,10 @@
 <h1>{{league.name}} Standings:</h1>
 {{!-- {{log this}} --}}
-
-{{#each league.teams}}
-{{log stats.0.wins}}
-<p>{{name}}</p>
+{{#each league}}
+{{teams}}
+{{!-- {{stats}} --}}
+{{!-- {{teams.name}} --}}
 {{/each}}
-{{league}}
-
-{{!-- {{#each league.teams}}
-{{log stats}}
-<p>{{name}}</p>
-<p>{{stats}}</p>
-{{/each}} --}}
 
 
 {{!-- <table class="table table-hover">
