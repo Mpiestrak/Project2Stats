@@ -28,7 +28,6 @@ const leagueController = {
     // populate stats after populating teams?
     show: (req, res) => {
         const leagueId = req.params.leagueId
-        // console.log(req.query)
         League.findById(leagueId).populate(`teams`)
             .then(league => {
                 // const team = league.team

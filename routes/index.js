@@ -14,7 +14,7 @@ router.get('/league/:leagueId', leagueController.show)
 router.put('/league/:leagueId', leagueController.update)
 router.delete('/league/:leagueId', leagueController.delete)
 // router.delete('/league/:leagueId', leagueController.delete)
-// router.get('/league/:leagueId', teamController.show)
+// router.get('/league/:leagueId/teams/:teamId', teamController.show)
 router.post('/league/:leagueId/teams', teamController.create)
 router.put('/league/:leagueId', statsController.update)
 

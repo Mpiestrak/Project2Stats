@@ -20,17 +20,23 @@ const teamController = {
         const leagueId = req.params.leagueId
         League.findById(leagueId).then((league) => {
             Team.create(req.body).then((createdTeam) => {
-                league.teams.push(createdTeam)
-                league.save()
-            }).then((team) => {
-                Stats.create(req.body).then((createdStats) => {
-                    teams.stats.push(createdStats)
-                    teams.save()
-                    res.redirect(`/league/${leagueId}`)
+                const newStats =  new Stats({
+                points: 0,
+                wins: 0,
+                losses: 0,
+                ties: 0,
+                goalsFor: 0,
+                goalsAgainst: 0
                 })
-            })
+                console.log("CREATED TEAM", createdTeam.stats)
+                createdTeam.stats.push(newStats)
+                league.teams.push(createdTeam)
+                createdTeam.save()
+                league.save()
+                res.redirect(`/league/${leagueId}`)
         })
-    },
+    })
+},
 
     // show: (req, res) => {
     //     const teamId = req.params.teamId
