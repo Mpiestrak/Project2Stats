@@ -1,6 +1,7 @@
 <h1>{{league.name}} Standings:</h1>
 {{!-- {{log this}} --}}
 
+
 <table class="table table-hover">
     <thead>
         <tr>
@@ -38,7 +39,7 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#teamCreateModal">
     Add new team
 </button>
-
+{{!--  ADD TEAM MOADL BELOW --}}
 <!-- Modal -->
 <div class="modal fade" id="teamCreateModal" tabindex="-1" role="dialog" aria-labelledby="teamCreateModalLabel"
     aria-hidden="true">
@@ -51,7 +52,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/league/league:id/teams" method="POST" class="auth-form">
+                <form action="/league/{{league._id}}/teams" method="POST" class="auth-form">
                     <div>
                         <label>Name of team:</label>
                         <input type="text" name="name" placeholder="Enter Name">
@@ -73,3 +74,4 @@
         </div>
     </div>
 </div>
+

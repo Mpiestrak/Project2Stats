@@ -15,14 +15,16 @@ const teamController = {
     //         })
     // },
 
+
     create: (req, res) => {
-        Team.create({
-            name: req.body.name,
-            motto: req.body.motto,
-            logo: req.body.logo,
-            stats: []
-        }).then(team => {
-            res.redirect(`/`)
+        const leagueId = req.params.leagueId
+        League.findById(leagueId).then((league) => {
+            console.log(league)
+            Team.create(req.body).then((createdTeam) => {
+                league.teams.push(createdTeam)
+                league.save()
+                res.redirect(`/league/${leagueId}`)
+            })
         })
     },
 

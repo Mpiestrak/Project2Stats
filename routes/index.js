@@ -19,7 +19,7 @@ router.get('/league/:leagueId', leagueController.show)
 router.post('/league/:leagueId/teams', teamController.create)
 
 // router.get('/team/:id', teamController.show)
-// router.get('/stats/:Id', statsController.index)
+// router.get('/league/:leagueId/teams/teamsId/stats', statsController.edit)
 
 
 module.exports = router;
