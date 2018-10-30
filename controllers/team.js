@@ -27,17 +27,16 @@ const teamController = {
         })
     },
 
-    // show: (req, res) => {
-    //     const teamId = req.params.id
-    //     // console.log(teamId)
-    //     Team.findById(teamId).populate(`stats`)
-    //         .then(team => {
-    //             // console.log(team)
-    //             // const stats = team.stats
-    //             res.render('team/index', {
-    //                 team: team
-    //             })
-    //         })
-    // }
+    show: (req, res) => {
+        const teamId = req.params.teamId
+        // console.log(teamId)
+        Team.findById(teamId).populate(`stats`)
+            .then(team => {
+                console.log(team)
+                // console.log(team)
+                // const stats = team.stats
+                res.render(`/league/index`)
+            })
+    }
 }
 module.exports = teamController;

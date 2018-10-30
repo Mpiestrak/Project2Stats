@@ -21,15 +21,6 @@ const team2Stats = new Stats({
     goalsAgainst: 2
 })
 
-const team2StatsAgain = new Stats({
-    points: 3,
-    wins: 1,
-    losses: 5,
-    ties: 0,
-    goalsFor: 2,
-    goalsAgainst: 2
-})
-
 const team3Stats = new Stats({
     points: 3,
     wins: 3,
@@ -50,7 +41,7 @@ const team2 = new Team({
     name: 'Second Team',
     motto: 'We are second',
     logo: 'logo2',
-    stats: [team2Stats, team2StatsAgain]
+    stats: [team2Stats ]
 })
 
 const team3 = new Team({
@@ -77,7 +68,7 @@ const league2 = new League({
 League.remove({})
     .then(() => Team.remove({}))
     .then(() => Stats.remove({}))
-    .then(() => Stats.insertMany([team1Stats, team2Stats, team2StatsAgain, team3Stats]))
+    .then(() => Stats.insertMany([team1Stats, team2Stats, team3Stats]))
     .then(() => Team.insertMany([team1, team2, team3]))
     .then(() => league1.save())
     .then(() => league2.save())

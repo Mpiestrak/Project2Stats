@@ -1,8 +1,19 @@
 <h1>{{league.name}} Standings:</h1>
 {{!-- {{log this}} --}}
 
+{{#each league.teams}}
+{{log stats.0.wins}}
+<p>{{name}}</p>
+{{/each}}
 
-<table class="table table-hover">
+{{!-- {{#each league.teams}}
+{{log stats}}
+<p>{{name}}</p>
+<p>{{stats}}</p>
+{{/each}} --}}
+
+
+{{!-- <table class="table table-hover">
     <thead>
         <tr>
             <th scope="col">Team Name</th>
@@ -17,20 +28,21 @@
 
     <tbody>
         <tr>
-            {{#each league.teams}}
+        {{#each league.teams}}
             <th scope="row">{{name}}</th>
+            {{#each stats}}
+                <td>{{points}}</td>
+                <td>{{wins}}</td>
+                <td>{{losses}}</td>
+                <td>{{ties}}</td>
+                <td>{{goalsFor}}</td>
+                <td>{{goalsAgainst}}</td>
             {{/each}}
-            {{#each team.stats}}
-            <td>{{points}}</td>
-            <td>{{wins}}</td>
-            <td>{{losses}}</td>
-            <td>{{ties}}</td>
-            <td>{{goalsFor}}</td>
-            <td>{{goalsAgainst}}</td>
-            {{/each}}
+        {{/each}}
+
         </tr>
     </tbody>
-</table>
+</table> --}}
 
 
 
@@ -39,7 +51,7 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#teamCreateModal">
     Add new team
 </button>
-{{!--  ADD TEAM MOADL BELOW --}}
+{{!-- ADD TEAM MODAL BELOW --}}
 <!-- Modal -->
 <div class="modal fade" id="teamCreateModal" tabindex="-1" role="dialog" aria-labelledby="teamCreateModalLabel"
     aria-hidden="true">
@@ -78,7 +90,7 @@
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#leagueCreateModal">
-    Create a new League
+    Update League
 </button>
 
 <!-- Modal -->
@@ -93,7 +105,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/league" method="POST" class="auth-form">
+                <form action="/league/{{league._id}}?_method=PUT" method="POST" class="auth-form">
                     <div>
                         <label>Name of League:</label>
                         <input type="text" name="name" placeholder="Enter Name">
@@ -106,7 +118,7 @@
                         <label for="">End Date:</label>
                         <input type="date" name="eDate" placeholder="g">
                     </div>
-                    <button type="submit">Next:</br>Add Teams/Create league</button>
+                    <button type="submit">Submit Changes</button>
                 </form>
             </div>
             <div class="modal-footer">
@@ -115,3 +127,48 @@
         </div>
     </div>
 </div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#statsUpdateModal">
+    Update Stats
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="statsUpdateModal" tabindex="-1" role="dialog" aria-labelledby="statsUpdateModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="statsUpdateModalLabel">Input new stats</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/league/{{league._id}}?_method=PUT" method="POST" class="auth-form">
+                    <div>
+                        <label>Name of League:</label>
+                        <input type="text" name="name" placeholder="Enter Name">
+                    </div>
+                    <div>
+                        <label for="">Beginning Date:</label>
+                        <input type="date" name="bDate" placeholder="b">
+                    </div>
+                    <div>
+                        <label for="">End Date:</label>
+                        <input type="date" name="eDate" placeholder="g">
+                    </div>
+                    <button type="submit">Submit Changes</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<form action="/league/{{league._id}}?_method=DELETE" method="POST">
+    <button type="submit" class="btn btn-danger">Delete League</button>
+</form>

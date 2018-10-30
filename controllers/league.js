@@ -24,6 +24,8 @@ const leagueController = {
             res.redirect(`/`)
         })
     },
+
+    // populate stats after populating teams?
     show: (req, res) => {
         const leagueId = req.params.leagueId
         // console.log(req.query)
@@ -35,18 +37,15 @@ const leagueController = {
                 })
             })
     },
-
-    edit: (req, res) => {
-        const leagueId = req.params.leagueId
-        League.findById(leagueId)
-        .then(league => {
-            res.render('league/edit', {league: league})
-        })
-    },
-
     update: (req, res) => {
         League.findByIdAndUpdate(req.params.leagueId, req.body).then((updatedLeague) => {
             res.redirect(`/league/${updatedLeague._id}`)
+        })
+    },
+    delete: (req, res) => {
+        League.findByIdAndDelete(req.params.leagueId, (err, league) =>
+        {
+            res.redirect('/')
         })
     }
 }
