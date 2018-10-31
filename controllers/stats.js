@@ -4,7 +4,11 @@ const Team = require('../models/Team')
 
 const statsController = {
     edit: (req, res) => {
-        
+        Stats.findById(req.params.stats).then(stats => {
+            res.render('/league/:leagueId/teams/:teamId/stats/:statsId/edit', {
+                stats: stats
+            })
+        })
     },
     update: (req, res) => {
             Team.findById(req.params.teamId).populate('stats').then((team) => {

@@ -22,18 +22,18 @@
     </thead>
 
     <tbody>
-        <tr>
         {{#each league.teams}}
-            <th scope="col">{{name}}</th>
+        <tr>
+            <td>{{name}}</td>
             {{#each stats}}
-                <td>{{points}}</td>
-                <td>{{wins}}</td>
-                <td>{{losses}}</td>
-                <td>{{ties}}</td>
-                <td>{{goalsFor}}</td>
-                <td>{{goalsAgainst}}</td>
+            <td>{{points}}</td>
+            <td>{{wins}}</td>
+            <td>{{losses}}</td>
+            <td>{{ties}}</td>
+            <td>{{goalsFor}}</td>
+            <td>{{goalsAgainst}}</td>
             {{/each}}
-        {{/each}}
+            {{/each}}
 
         </tr>
     </tbody>
@@ -124,11 +124,9 @@
 </div>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#statsUpdateModal">
-    Update Stats
-</button>
+<a class="btn btn-primary" href="/league/:leagueId/teams/:teamId/stats/:statsId/edit" role="button">Update Stats</a>
 
-<!-- Modal -->
+{{!-- <!-- Modal -->
 <div class="modal fade" id="statsUpdateModal" tabindex="-1" role="dialog" aria-labelledby="statsUpdateModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -140,7 +138,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/league/{{league._id}}/teams/{{team._id}}/stats/{{stat._id}}?_method=PUT" method="POST" class="auth-form">
+                <form action="/league/{{league._id}}/teams/{{team._id}}/stats/{{stat._id}}?_method=PUT" method="POST"
+                    class="auth-form">
                     <div>
                         <label>Points:</label>
                         <input type="number" name="points" placeholder="0">
@@ -153,12 +152,12 @@
                         <label for="">Losses:</label>
                         <input type="number" name="losses" placeholder="g">
                     </div>
-                    <button type="submit">Submit Changes</button>
+                    <button  type="submit">Submit Changes</button>
                 </form>
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 
 <form action="/league/{{league._id}}?_method=DELETE" method="POST">
