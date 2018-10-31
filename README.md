@@ -28,7 +28,7 @@ ___
 
 ## Wireframe
 
-https://github.com/Mpiestrak/Project2Stats/issues/1#issue-376063335
+<img width="1440" alt="screen shot 2018-10-31 at 12 53 34 pm" src="https://user-images.githubusercontent.com/39568508/47806052-30562500-dd0f-11e8-8f59-affe10ba05dd.png">
 
 ___
 
