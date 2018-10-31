@@ -5,7 +5,7 @@ const Team = require('../models/Team')
 const statsController = {
     edit: (req, res) => {
         Stats.findById(req.params.stats).then(stats => {
-            res.render('/league/:leagueId/teams/:teamId/stats/:statsId/edit', {
+            res.render('/stats/:statsId/edit', {
                 stats: stats
             })
         })

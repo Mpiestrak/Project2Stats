@@ -1,11 +1,11 @@
 <h1>{{league.name}} Standings:</h1>
 {{!-- {{log this}} --}}
-{{#each league.teams}}
+{{!-- {{#each league.teams}} --}}
 {{!-- {{teams}} --}}
-{{stats}}
+{{!-- {{stats}} --}}
 {{!-- {{stats}} --}}
 {{!-- {{teams.name}} --}}
-{{/each}}
+{{!-- {{/each}} --}}
 
 
 <table class="table table-hover">
@@ -124,7 +124,7 @@
 </div>
 
 <!-- Button trigger modal -->
-<a class="btn btn-primary" href="/league/:leagueId/teams/:teamId/stats/:statsId/edit" role="button">Update Stats</a>
+<a class="btn btn-primary" href="/stats/:statsId/edit" role="button">Update Stats</a>
 
 {{!-- <!-- Modal -->
 <div class="modal fade" id="statsUpdateModal" tabindex="-1" role="dialog" aria-labelledby="statsUpdateModalLabel"
