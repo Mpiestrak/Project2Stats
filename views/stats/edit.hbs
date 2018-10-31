@@ -1,15 +1,45 @@
+{{stats}}
+<h1>Insert new values then select team to apply them.</h1>
+
+<div>
+    <select name="stats" id="statsUpdate">
+        <option ></option>
+        {{#each league.teams}} 
+        <option value="{{stats._id}}">{{name}}</option>
+        {{/each}}
+    </select>
+</div>
+
+
 <form action="/league/{{league._id}}/teams" method="POST" class="auth-form">
     <div>
-        <label>Name of team:</label>
-        <input type="text" name="name" placeholder="Enter Name">
+        <label>Points:</label>
+        <input type="number" name="points">
     </div>
     <div>
-        <label for="">Team Motto:</label>
-        <input type="text" name="motto" placeholder="Motto">
+        <label for="">Wins:</label>
+        <input type="number" name="wins">
     </div>
     <div>
-        <label for="">Team logo</label>
-        <input type="img" name="logo" placeholder="Logo">
+        <label for="">Losses:</label>
+        <input type="number" name="losses">
     </div>
-    <button type="submit">Next:</br>Add Teams</button>
+    <div>
+        <label>Ties:</label>
+        <input type="number" name="ties">
+    </div>
+    <div>
+        <label for="">Goals For:</label>
+        <input type="number" name="goalsFor">
+    </div>
+    <div>
+        <label for="">Goals Against:</label>
+        <input type="number" name="goalsAgainst">
+    </div>
+
+    <!-- Button trigger modal -->
+    <button type="submit" class="btn btn-primary">
+        Update Stats
+    </button>
+
 </form>

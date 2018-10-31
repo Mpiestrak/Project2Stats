@@ -4,20 +4,30 @@ const Team = require('../models/Team')
 
 const statsController = {
     edit: (req, res) => {
-        Stats.findById(req.params.stats).then(stats => {
-            res.render('/stats/:statsId/edit', {
-                stats: stats
-            })
+        const leagueId = req.params.leagueId
+        League.findById(leagueId).populate({path: 'teams', populate: {path: 'stats' }}).then((league) => {
+            console.log(league)
+            res.render('stats/edit', {league: league})
         })
+        // Team.find({}).populate('stats').then((stats) => {
+        //     console.log(stats)
+        //     res.render('stats/edit', {
+        //         stats: stats
+        //     })
+        // })
     },
     update: (req, res) => {
-            Team.findById(req.params.teamId).populate('stats').then((team) => {
-                team.stats[0]
-                res.redirect(`/league/${leagueId}`)
-                // Stats.findByIdAndUpdate(req.params.statsId, req.body).then((updatedStats) => {
-                //     res.redirect(`/league/${leagueId}`)
-                // })
-            })
+            // Team.findById(req.params.teamId).populate('stats').then((team) => {
+            //     Stats.update(req.body).then((leagueId) => {
+            //         res.redirect(`/league/${leagueId}`)
+            //     })
+                // team.stats[0]
+            Team.findById(req.params.teamId).populate
+                Stats.findByIdAndUpdate(req.params.statsId, req.body).then(({}) => {
+                    
+                    res.redirect(`/league/${leagueId}`)
+                })
+            
     },
 
 }

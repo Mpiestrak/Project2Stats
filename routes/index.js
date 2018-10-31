@@ -16,7 +16,7 @@ router.delete('/league/:leagueId', leagueController.delete)
 // router.delete('/league/:leagueId', leagueController.delete)
 // router.get('/league/:leagueId/teams/:teamId', teamController.show)
 router.post('/league/:leagueId/teams', teamController.create)
-router.get('/stats/:statsId/edit', statsController.edit)
-router.put('/league/:leagueId/teams/teamsId/stats', statsController.update)
+router.get('/league/:leagueId/stats/edit', statsController.edit)
+router.put('/league/:leagueId/stats/edit', statsController.update)
 
 module.exports = router;

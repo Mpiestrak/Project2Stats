@@ -1,4 +1,6 @@
 <h1>{{league.name}} Standings:</h1>
+<h2>{{league.bDate}}</h2>
+<h2>{{league.eDate}}</h2>
 {{!-- {{log this}} --}}
 {{!-- {{#each league.teams}} --}}
 {{!-- {{teams}} --}}
@@ -7,7 +9,7 @@
 {{!-- {{teams.name}} --}}
 {{!-- {{/each}} --}}
 
-
+{{log stats}}
 <table class="table table-hover">
     <thead>
         <tr>
@@ -107,11 +109,11 @@
                     </div>
                     <div>
                         <label for="">Beginning Date:</label>
-                        <input type="date" name="bDate" placeholder="b">
+                        <input type="date" name="bDate" placeholder="Beginning Date">
                     </div>
                     <div>
                         <label for="">End Date:</label>
-                        <input type="date" name="eDate" placeholder="g">
+                        <input type="date" name="eDate" placeholder="End Date">
                     </div>
                     <button type="submit">Submit Changes</button>
                 </form>
@@ -124,7 +126,7 @@
 </div>
 
 <!-- Button trigger modal -->
-<a class="btn btn-primary" href="/stats/:statsId/edit" role="button">Update Stats</a>
+<a class="btn btn-primary" href="/league/{{league._id}}/stats/edit" role="button">Update Stats</a>
 
 {{!-- <!-- Modal -->
 <div class="modal fade" id="statsUpdateModal" tabindex="-1" role="dialog" aria-labelledby="statsUpdateModalLabel"
