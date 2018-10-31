@@ -3,12 +3,16 @@ const Stats = require('../models/Stats')
 const Team = require('../models/Team')
 
 const statsController = {
+    edit: (req, res) => {
+        
+    },
     update: (req, res) => {
-
-            Team.findById(req.params.teamId).then((team) => {
-                Stats.findByIdAndUpdate(req.params.statsId, req.body).then((updatedStats) => {
-                    res.redirect(`/league/${leagueId}`)
-                })
+            Team.findById(req.params.teamId).populate('stats').then((team) => {
+                team.stats[0]
+                res.redirect(`/league/${leagueId}`)
+                // Stats.findByIdAndUpdate(req.params.statsId, req.body).then((updatedStats) => {
+                //     res.redirect(`/league/${leagueId}`)
+                // })
             })
     },
 

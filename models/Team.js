@@ -5,12 +5,12 @@ const Team = new Schema({
     name: String,
     motto: String,
     logo: String,
-    stats: [
+    stats: 
         {
             type: Schema.Types.ObjectId,
             ref: 'Stats'
         }
-    ]
+    
 })
 
 module.exports = mongoose.model('Team', Team)
