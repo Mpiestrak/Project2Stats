@@ -1,4 +1,4 @@
-require('dotenv').config();
+// require('dotenv').config();
 
 var createError = require('http-errors');
 var express = require('express');
@@ -12,9 +12,8 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
-const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI);
 app.use(methodOverride('_method'));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -44,6 +43,12 @@ app.use('/', indexRouter);
 //   res.status(err.status || 500);
 //   res.render('error');
 // });
+
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, () => {
+    console.log("Server is working")
+})
 
 
 

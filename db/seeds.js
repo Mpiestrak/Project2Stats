@@ -41,7 +41,7 @@ const team2 = new Team({
     name: 'Second Team',
     motto: 'We are second',
     logo: 'logo2',
-    stats: [team2Stats ]
+    stats: [team2Stats]
 })
 
 const team3 = new Team({
